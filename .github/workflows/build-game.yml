@@ -124,13 +124,16 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - target: linux
+            runs-on: linux
           - target: windows
             runs-on: windows
           - target: macos
             runs-on: macos
-          # TODO: Install XCode to build iOS
-          # - target: ios
-          #   runs-on: macos
+          - target: ios
+            runs-on: ios
+          - target: android
+            runs-on: android
     runs-on:
       - ${{ matrix.runs-on }}
     defaults:
@@ -199,7 +202,7 @@ jobs:
         include:
           - target: linux
           - target: html5
-          # - target: android
+          - target: android
     defaults:
       run:
         shell: bash

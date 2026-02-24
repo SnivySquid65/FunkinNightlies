@@ -79,19 +79,20 @@ class MemoryUtil
           return 0.0;
         }
         line = input.readLine();
-      }
-      while (!regex.match(line));
+      } while (!regex.match(line));
 
       input.close();
 
       final kb:Float = Std.parseFloat(regex.matched(1));
 
-      if (kb != Math.NaN)
+      if (!Math.isNaN(kb))
       {
         return kb * 1024.0;
       }
     }
-    catch (e:Dynamic) {}
+    catch (e:Dynamic)
+    {
+    }
     #end
 
     return 0.0;
